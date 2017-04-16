@@ -62,7 +62,7 @@ connection.query("SELECT * FROM products WHERE stock_quantity > 0", function (er
                 if (error) throw error;
                 console.log(
                     "$ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $",
-                    "\n\tYour total came to $" + buyerSelected.price + ". Thank you for your order!",
+                    "\n\tYour total came to $" + buyerSelected.price * orderQty + ". Thank you for your order!",
                     "\n$ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $");
                     connection.end();
             }) 
