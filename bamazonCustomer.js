@@ -50,6 +50,7 @@ connection.query("SELECT * FROM products WHERE stock_quantity > 0", function (er
         }
         if (buyerSelected.stock_quantity < orderQty) {
             console.log("Sorry, there is insufficient stock for your order.");
+            connection.end();
         } else {
             var stockQty = buyerSelected.stock_quantity;
             stockQty -= orderQty;
@@ -63,7 +64,8 @@ connection.query("SELECT * FROM products WHERE stock_quantity > 0", function (er
                     "$ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $",
                     "\n\tYour total came to $" + buyerSelected.price + ". Thank you for your order!",
                     "\n$ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $");
-            })
+                    connection.end();
+            }) 
         }
 
 });
